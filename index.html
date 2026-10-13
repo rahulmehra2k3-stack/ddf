@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dental Diseases</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,600;1,400&family=Figtree:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#eef0ed;--surface:#fff;--ink:#14202b;--mute:#53616c;--line:#cdd5d3;--acc:#0b7482;--acc-soft:#d5ecee;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d1319;--surface:#151d26;--ink:#e6ebe8;--mute:#9aa8b1;--line:#27333e;--acc:#6fd3df;--acc-soft:#16343a}}
+:root[data-theme="dark"]{--bg:#0d1319;--surface:#151d26;--ink:#e6ebe8;--mute:#9aa8b1;--line:#27333e;--acc:#6fd3df;--acc-soft:#16343a}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(20px + env(safe-area-inset-top,0px))}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.65 Figtree,system-ui,sans-serif}
+h1,h2,h3{font-family:Newsreader,Georgia,serif;font-weight:400;line-height:1.15;margin:0}
+h1{font-size:clamp(42px,8vw,72px);margin-top:44px}
+h2{font-size:clamp(28px,5vw,40px)}
+h4{font:600 16px Figtree,sans-serif;margin:20px 0 6px;color:var(--acc)}
+p{margin:0 0 12px;max-width:64ch}
+ul{margin:0 0 12px;padding-left:22px}
+li{margin-bottom:5px;max-width:66ch}
+li b{font-weight:600}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+.bar{position:fixed;top:env(safe-area-inset-top,0px);left:0;height:3px;background:var(--acc);width:0;z-index:20}
+header,main{max-width:860px;margin:0 auto;padding:0 20px}
+header{padding-bottom:26px}
+.top{display:flex;justify-content:space-between;align-items:center;padding-top:20px}
+.top button{border:1px solid var(--line);background:none;color:var(--ink);border-radius:20px;padding:5px 14px;font:inherit;font-size:14px;cursor:pointer}
+.sn{font:italic 18px Newsreader,serif;color:var(--acc)}
+.lede{color:var(--mute);font-size:19px;margin-top:12px}
+.search{display:block;width:100%;margin-top:18px;padding:12px 18px;border:1px solid var(--line);border-radius:28px;background:var(--surface);color:var(--ink);font:inherit;font-size:16px}
+#count{color:var(--mute);font-size:14px;margin:8px 4px 0;min-height:20px}
+.index{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:22px 26px;margin:14px 0 20px}
+.index h2{font-size:28px;margin-bottom:6px}
+.index h3{font:600 14px Figtree,sans-serif;color:var(--acc);margin:16px 0 4px}
+.index ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:0 24px}
+.index li{margin:0;max-width:none}
+.index a{display:flex;gap:10px;padding:3px 0;text-decoration:none;font-size:17px}
+.index a span{color:var(--acc);min-width:28px;font:italic 17px Newsreader,serif}
+.index a:hover{color:var(--acc)}
+section{padding:52px 0 14px;border-top:1px solid var(--line)}
+.back{float:right;font-size:14px;color:var(--mute);text-decoration:none;margin-top:6px}
+.num{font:italic 20px Newsreader,serif;color:var(--acc);display:block;margin-bottom:2px}
+.note{border-left:4px solid var(--acc);background:var(--acc-soft);padding:14px 18px;border-radius:0 12px 12px 0;margin:16px 0}
+.note b{color:var(--acc)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:6px 20px 12px;margin-bottom:12px}
+.card.hl{border-color:var(--acc);background:var(--acc-soft)}
+.card h4{margin-top:14px}
+.fx{background:var(--surface);border:1px dashed var(--line);border-radius:14px;padding:12px 20px;margin-top:16px}
+.fx h4{margin:0 0 4px}
+.fx p{margin:0;color:var(--mute);font-size:16px}
+[hidden]{display:none!important}
+.rev{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+.rev button{text-align:left;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px 16px;cursor:pointer;color:var(--ink);font:inherit}
+.rev button:hover,.rev button[aria-expanded=true]{border-color:var(--acc)}
+.rev strong{display:block;font:21px Newsreader,serif}
+.rev span{display:block;font-size:15px;color:var(--mute);max-height:0;overflow:hidden;transition:max-height .3s}
+.rev button[aria-expanded=true] span{max-height:200px;margin-top:4px}
+.tools{display:flex;gap:10px;margin-top:14px}
+.tools button{border:1px solid var(--line);background:none;color:var(--ink);border-radius:20px;padding:6px 16px;font:inherit;font-size:14px;cursor:pointer}
+.disc{color:var(--mute);font-size:15px;margin-top:22px}
+footer{max-width:860px;margin:30px auto 0;text-align:center;color:var(--mute);padding:26px 20px 60px;font-size:15px;border-top:1px solid var(--line)}
+#up{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:24px;padding:8px 16px;cursor:pointer;font:inherit;font-size:14px;opacity:0;pointer-events:none;transition:opacity .2s;z-index:15}
+#up.on{opacity:1;pointer-events:auto}
+@media (max-width:700px){.index ol,.rev{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div class="bar" id="bar"></div>
+<header id="top">
+  <div class="top"><span class="sn">Forensic odontology notes</span><button id="theme" aria-label="Toggle light or dark theme">Theme</button></div>
+  <h1>Dental Diseases</h1>
+  <p class="lede">Forensic dental anomalies and systemic conditions, from anodontia to tetracycline staining.</p>
+  <input class="search" id="q" type="search" placeholder="Search these notes (try PAX9, cusp, enamel)" aria-label="Search notes">
+  <div id="count" aria-live="polite"></div>
+</header>
+<main>
+  <nav class="index" aria-label="Index"><h2>Index</h2><div id="idx"></div></nav>
+  <div id="body"></div>
+  <section id="rev">
+    <a class="back" href="#top">Back to index</a>
+    <h2>Final quick-revision list</h2>
+    <p style="color:var(--mute);margin-top:6px">Tap a term to check yourself.</p>
+    <div class="tools"><button id="showall">Show all</button><button id="hideall">Hide all</button></div>
+    <div class="rev" id="revlist"></div>
+    <p class="disc">These are study notes. Genetic associations and dental classifications may vary by subtype and textbook; interpret findings in context.</p>
+  </section>
+</main>
+<footer>Dental Diseases · study notes</footer>
+<button id="up" onclick="location.hash='top'">Index</button>
+
+<script>
+(function(){
+var $=function(s,r){return (r||document).querySelector(s)},$$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
+var F='Forensic importance';
+// [id, number, title, group, definition, blocks[[label,items,highlight]], forensic]
+// item = "Term|description" (bold term) or plain string
+var T=[
+['anodontia','1','Anodontia','Number','A developmental abnormality in which teeth are congenitally absent because they fail to develop. Complete anodontia is rare; absence of some teeth is more commonly described as hypodontia or oligodontia, depending on how many are missing.',[
+['Types',['True anodontia|Teeth fail to develop. May be linked to genetic abnormalities affecting tooth development. Mutations in PAX9 and MSX1 are associated with congenital absence of multiple teeth. Complete anodontia may occur in severe ectodermal dysplasia.','False anodontia|Teeth developed but are no longer in the mouth because they were lost or removed (extraction, trauma, severe dental disease). Dental records and radiographs help distinguish acquired loss from congenital absence.','Pseudo-anodontia|Teeth developed but failed to erupt (physical obstruction, abnormal position or disturbed eruption). Radiographs can show teeth embedded in the jaw.']],
+['Genetic basis',['PAX9|Important in early tooth development; mutations can cause absence of multiple teeth, especially molars.','MSX1|Regulates interactions between tissues during tooth development; mutations may cause selective tooth agenesis.','AXIN2|Takes part in Wnt/beta-catenin signalling; pathogenic variants can cause oligodontia, and certain variants are associated with increased colorectal cancer risk.']],
+['Quick revision',['True = teeth never develop.','False = teeth developed but were lost or removed.','Pseudo = teeth developed but failed to erupt.'],1]],
+'Dental examination and radiographs help distinguish congenital absence from tooth loss after development. Tooth number and developmental abnormalities can support comparative dental identification.'],
+
+['supernumerary','2','Supernumerary teeth','Number','Extra teeth that develop in addition to the normal number: 20 primary teeth or usually 32 permanent teeth.',[
+['Types by shape',['Conical','Tuberculate','Supplemental','Odontome']],
+['Types by location',['Mesiodens','Paramolar','Distomolar','Parapremolar']]],''],
+
+['microdontia','3','Microdontia','Size','A dental anomaly in which one or more teeth are smaller than normal.',[
+['Types',['True generalised|All teeth are smaller than normal.','Relative generalised|Teeth are normal in size but appear small in relation to the jaws.','Localised (focal)|One or a few teeth are smaller than normal.']],
+['Genetic and developmental basis',['Wnt signalling is important in early tooth-germ formation and tooth development.','Interference with Wnt signalling, such as by a signalling antagonist, may retard tooth-germ development and produce smaller teeth.','Beta-catenin is an important component of the canonical Wnt signalling pathway.','Alterations in beta-catenin signalling can affect tooth size. Increased pathway activity may promote larger teeth in experimental models; the effect depends on the context and type of alteration.']]],
+'Unusual tooth size and shape may provide useful features for comparative dental identification.'],
+
+['macrodontia','4','Macrodontia','Size','A dental anomaly in which one or more teeth are larger than normal.',[
+['Types',['True generalised|All teeth are larger than normal.','Relative generalised|Teeth are normal in size but appear large in relation to the jaws.','Localised|One or a few teeth are larger than normal.']],
+['Genetic basis',['Beta-catenin is part of the Wnt signalling pathway, which regulates tooth development and size.','Alterations in beta-catenin signalling can affect tooth size; increased pathway activity has been associated with larger teeth in experimental models.','Macrodontia is not always caused by beta-catenin mutations. Genetic, developmental and hormonal factors may contribute.']]],
+'Unusual tooth size can assist in distinguishing individuals during comparative dental examination.'],
+
+['gemination','5','Gemination','Form','A developmental anomaly in which a single tooth germ attempts to divide, producing a large or partially divided tooth crown.',[
+['Characteristics',['The crown may be bifid (split) or appear partially divided.','Usually the tooth has one root, although variations occur.','Total tooth count generally remains normal when the anomalous tooth is counted as one.','Commonly affects anterior teeth.']]],
+'The unusual crown shape and developmental pattern may help in dental identification.'],
+
+['fusion','6','Fusion','Form','A developmental anomaly in which two separate tooth germs unite during development, forming a single enlarged tooth structure.',[
+['Characteristics',['The crown is usually enlarged or irregular.','Depending on the stage of development, dentine may be joined, and pulp chambers and root canals may be separate or joined.','Tooth count is usually reduced by one when the fused tooth is counted as one. If fusion involves a supernumerary tooth, the count may remain normal.','Commonly affects anterior teeth.']],
+['Gemination versus fusion',['Gemination|One tooth germ attempts to divide; tooth count is usually normal.','Fusion|Two tooth germs unite; tooth count is usually reduced by one, unless a supernumerary tooth is involved.'],1]],
+'Distinctive crown and root morphology can assist comparative dental identification.'],
+
+['invaginatus','7','Dens invaginatus','Form','A developmental anomaly in which the enamel organ folds inward into the dental papilla during tooth development, creating an invagination within the tooth. Also called dens in dente.',[
+['Types',['Type I|Invagination is confined to the crown and does not extend beyond the cementoenamel junction (CEJ).','Type II|Invagination extends beyond the CEJ into the root but does not involve the periapical tissues.','Type III|Invagination extends beyond the CEJ and through the root, potentially opening through a second apical or lateral foramen.']]],
+'Unusual dental morphology may help distinguish individuals during comparative dental examination.'],
+
+['evaginatus','8','Dens evaginatus','Form','A developmental anomaly in which an extra cusp or tubercle projects outward from the tooth surface.',[
+['Characteristics',['Appears as an additional cusp-like projection on the crown.','Commonly affects premolars, particularly mandibular premolars, but may occur in other teeth.','The projection contains enamel and dentine and may contain an extension of the pulp.','Fracture or wear of the extra cusp may expose the pulp and cause pain or infection.']]],
+'The presence and location of an accessory cusp can provide an additional morphological feature for dental identification.'],
+
+['pearl','9','Enamel pearl','Form','A small, rounded mass of enamel on the root surface of a tooth, commonly near the furcation of multirooted teeth.',[
+['Characteristics',['Develops when enamel forms abnormally on the root surface during tooth development.','Commonly found in the furcation region of molars, particularly maxillary molars.','May consist entirely of enamel or contain an underlying dentine component.','Can promote plaque accumulation and contribute to local periodontal problems.']]],
+'Its distinctive location and morphology may serve as an additional feature during comparative dental examination.'],
+
+['taurodontism','10','Taurodontism','Form','A developmental anomaly characterised by an enlarged, elongated pulp chamber, an apically displaced pulpal floor and relatively short roots. The term means "bull-like tooth."',[
+['Characteristics',['The pulp chamber is enlarged vertically.','The floor of the pulp chamber and the root furcation sit farther apically than usual.','Roots are relatively short.','Commonly affects permanent molars; may occur in primary and permanent dentitions.','May occur independently or with certain genetic conditions, including Klinefelter syndrome.']],
+['Types',['Hypotaurodontism|Mild form.','Mesotaurodontism|Moderate form.','Hypertaurodontism|Severe form.']]],
+'Distinctive pulp-chamber and root morphology can assist in dental identification and comparative radiographic examination.'],
+
+['root','11','Supernumerary root','Form','An additional root present in a tooth beyond its normally expected number.',[
+['Characteristics',['Develops because of variation in root formation, involving structures such as Hertwig\'s epithelial root sheath.','May occur in premolars, molars, canines and other teeth.','The additional root can vary in size, shape, curvature and degree of separation.','Generally detected using dental radiographs or three-dimensional imaging such as cone-beam CT (CBCT).']],
+['Examples',['Radix entomolaris|An additional distolingual root, classically associated with mandibular molars.','Radix paramolaris|An additional root on the buccal or mesiobuccal side of a molar.']]],
+'Variations in root number, shape and arrangement may provide useful features for comparative dental identification.'],
+
+['ai','12','Amelogenesis imperfecta','Structure','A hereditary developmental disorder of tooth enamel (AI) in which enamel may be insufficient in quantity, poorly mineralised or inadequately matured. It can affect both primary and permanent teeth.',[
+['Causes',['Mutations in genes involved in enamel formation, including AMELX, ENAM, AMBN, MMP20 and FAM83H.','These mutations interfere with amelogenesis, the process of enamel formation and mineralisation.','Depending on the gene, inheritance may be autosomal dominant, autosomal recessive or X-linked.','Acquired developmental disturbances can also damage enamel, but they are not the cause of hereditary AI.']],
+['Types',['Hypoplastic|Enamel is thin because of defective matrix formation.','Hypomaturation|Enamel does not mature properly and is relatively soft.','Hypocalcified|Enamel forms but is poorly mineralised and relatively soft.','Hypomaturation-hypoplastic with taurodontism|A mixed form involving enamel defects and enlarged pulp chambers.']]],
+'Characteristic enamel defects may help in dental profiling and comparative identification.'],
+
+['di','13','Dentinogenesis imperfecta','Structure','A hereditary developmental disorder of dentine (DI) that produces abnormal dentine structure and may cause discoloured, fragile teeth that wear down easily. It can affect primary and permanent teeth.',[
+['Causes',['Most isolated cases are associated with mutations in the DSPP gene, which encodes dentine sialophosphoprotein, important for normal dentine formation.','Abnormal dentine weakens the tooth and may cause enamel to chip away because the underlying dentine gives inadequate support.','Isolated DI associated with DSPP mutations is generally inherited in an autosomal dominant pattern.','DI can also occur with osteogenesis imperfecta, a hereditary connective-tissue disorder commonly associated with mutations in COL1A1 or COL1A2.']],
+['Role of COL1A1 and COL1A2',['These genes encode the major polypeptide chains of type I collagen, a structural protein important in bone and dentine.','Mutations primarily cause osteogenesis imperfecta and may produce associated dentinogenesis imperfecta in certain forms of the disorder.']],
+['Traditional classification',['Type I|Associated with osteogenesis imperfecta.','Type II|Occurs independently of osteogenesis imperfecta; commonly associated with DSPP mutations.','Type III|Also called the Brandywine type; may show distinctive dental features, including very large pulp chambers in some teeth.']],
+['Quick difference',['Amelogenesis imperfecta affects enamel.','Dentinogenesis imperfecta affects dentine.','COL1A1 and COL1A2 are particularly important in DI associated with osteogenesis imperfecta.'],1]],
+'Tooth discolouration, abnormal dentine structure and characteristic radiographic findings may assist dental identification.'],
+
+['syphilis','14A','Congenital syphilis','Systemic','An infection caused by Treponema pallidum and transmitted from an infected mother to the fetus during pregnancy. It can interfere with tooth development and produce characteristic dental abnormalities.',[
+['Dental manifestations',['Hutchinson\'s incisors|Permanent upper central incisors may be screwdriver-shaped with a notched incisal edge.','Mulberry molars|First permanent molars may have multiple small enamel cusps, giving the occlusal surface a mulberry-like appearance.','Enamel hypoplasia|Enamel formation may be defective, producing abnormal tooth shape and surface irregularities.']],
+['Quick revision',['Congenital syphilis: Hutchinson\'s incisors and mulberry molars.'],1]],
+'Hutchinson\'s incisors and mulberry molars are classically associated with congenital syphilis and may help identify characteristic developmental dental abnormalities. They should be interpreted with clinical history and other findings.'],
+
+['tetra','14B','Tetracycline staining','Systemic','Intrinsic dental discolouration caused by incorporation of tetracycline antibiotics into developing teeth during mineralisation.',[
+['Causes and mechanism',['Tetracycline can cross the placenta and reach developing fetal teeth when given to a pregnant mother.','It binds to calcium ions and becomes incorporated into mineralising dental tissues.','Exposure during tooth development can produce yellow, grey or brown discolouration.','Ultraviolet light may cause affected teeth to fluoresce.','Severity depends on the antibiotic, dose, duration of exposure and stage of tooth development.']],
+['Dental manifestations',['Yellow, grey or brown intrinsic discolouration.','Horizontal bands of different shades may appear depending on the timing and duration of exposure.','Severe exposure during development may sometimes be associated with enamel defects, although discolouration is the characteristic finding.']],
+['Quick revision',['Tetracycline exposure: intrinsic yellow, grey or brown tooth discolouration.'],1]],
+'Tetracycline-related fluorescence under ultraviolet light may assist examination of extracted teeth and skeletal remains. Staining alone cannot establish the exact drug, dose or timing of exposure.']
+];
+var G={Number:'Number of teeth',Size:'Size of teeth',Form:'Form and structure of teeth',Structure:'Hereditary tooth tissue disorders',Systemic:'Systemic diseases affecting teeth'};
+function li(x){var p=x.split('|');return p.length>1?'<li><b>'+p[0]+':</b> '+p[1]+'</li>':'<li>'+x+'</li>'}
+// index
+var idx='',last='';
+T.forEach(function(t){if(t[3]!==last){if(last)idx+='</ol>';idx+='<h3>'+G[t[3]]+'</h3><ol>';last=t[3]}idx+='<li data-id="'+t[0]+'"><a href="#'+t[0]+'"><span>'+t[1]+'</span>'+t[2]+'</a></li>'});
+idx+='</ol><h3>Revision</h3><ol><li data-id="rev"><a href="#rev"><span>&nbsp;</span>Final quick-revision list</a></li></ol>';
+$('#idx').innerHTML=idx;
+// body
+$('#body').innerHTML=T.map(function(t){
+  var h='<section id="'+t[0]+'"><a class="back" href="#top">Back to index</a><span class="num">'+t[1]+'</span><h2>'+t[2]+'</h2><div class="note"><b>Definition.</b> '+t[4]+'</div>';
+  t[5].forEach(function(b){h+='<div class="card'+(b[2]?' hl':'')+'"><h4>'+b[0]+'</h4><ul>'+b[1].map(li).join('')+'</ul></div>'});
+  if(t[6])h+='<div class="fx"><h4>'+F+'</h4><p>'+t[6]+'</p></div>';
+  return h+'</section>'}).join('');
+// revision
+var R=[['Anodontia','Congenital absence of teeth; true, false and pseudo forms.'],['PAX9, MSX1, AXIN2','Genes associated with congenital tooth agenesis.'],['Supernumerary teeth','Extra teeth; conical, tuberculate, supplemental, odontome; mesiodens, paramolar, distomolar, parapremolar.'],['Microdontia','Smaller-than-normal teeth; true generalised, relative generalised, localised.'],['Macrodontia','Larger-than-normal teeth; true generalised, relative generalised, localised.'],['Gemination','One tooth germ attempts to divide.'],['Fusion','Two tooth germs unite.'],['Dens invaginatus','Inward folding; Types I, II, III.'],['Dens evaginatus','Extra cusp or tubercle projects outward.'],['Enamel pearl','Rounded enamel mass on the root surface.'],['Taurodontism','Enlarged pulp chamber and apically displaced furcation; hypo-, meso- and hypertaurodontism.'],['Supernumerary root','Additional root; examples include radix entomolaris and radix paramolaris.'],['Amelogenesis imperfecta','Hereditary enamel disorder.'],['Dentinogenesis imperfecta','Hereditary dentine disorder; usually DSPP-related in isolated cases, COL1A1/COL1A2 in associated osteogenesis imperfecta.'],['Congenital syphilis','Hutchinson\'s incisors and mulberry molars.'],['Tetracycline staining','Intrinsic tooth discolouration from exposure during dental development.']];
+var rl=$('#revlist');
+R.forEach(function(r){var b=document.createElement('button');b.setAttribute('aria-expanded','false');b.innerHTML='<strong>'+r[0]+'</strong><span>'+r[1]+'</span>';b.onclick=function(){b.setAttribute('aria-expanded',b.getAttribute('aria-expanded')!=='true')};rl.appendChild(b)});
+function setAll(v){$$('button',rl).forEach(function(b){b.setAttribute('aria-expanded',v)})}
+$('#showall').onclick=function(){setAll(true)};$('#hideall').onclick=function(){setAll(false)};
+// search
+var secs=$$('#body section'),cnt=$('#count');
+$('#q').oninput=function(){
+  var v=this.value.trim().toLowerCase(),n=0;
+  secs.forEach(function(s){var m=!v||s.textContent.toLowerCase().indexOf(v)>-1;s.hidden=!m;var l=$('li[data-id="'+s.id+'"]');if(l)l.hidden=!m;if(m)n++});
+  cnt.textContent=v?(n?n+' of '+T.length+' topics match':'No topics match. Try a shorter word.'):'';
+};
+// theme, progress
+try{var sv=localStorage.getItem('dd-theme');if(sv)document.documentElement.setAttribute('data-theme',sv)}catch(e){}
+$('#theme').onclick=function(){var c=document.documentElement.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');var n=c==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',n);try{localStorage.setItem('dd-theme',n)}catch(e){}};
+var bar=$('#bar'),up=$('#up');
+function sc(){var h=document.documentElement,m=h.scrollHeight-h.clientHeight;bar.style.width=(m>0?h.scrollTop/m*100:0)+'%';up.className=h.scrollTop>600?'on':''}
+addEventListener('scroll',sc,{passive:true});sc();
+})();
+</script>
+</body>
+</html>
